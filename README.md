@@ -4,7 +4,7 @@ ZWave Home Automation Notes: The garage overhead lights and the house water heat
 ## Overview
 There are three groups of overhead lights in the garage - one light over the workbench next to the window, a cluster over the workbench in the middle of the room, and some over the walkway near the garage door opener.  There are three switches - a wired toggle switch next to the outside door and on-wall wireless (battery powered) switches next to the stairway door and the downstairs bedroom door.  There are also some task lights that can only be controlled by switches right on the lights.
 
-The intention is that turning on any switch (up button/toggle) will turn on all the light, and similarly, turning off (down button/toggle) will turn off all the lights.  In addition, the controller has a rule to turn off the lights at 10PM in case someone forgot to turn them off.
+The intention is that turning on any switch (up button/toggle) will turn on all the lights, and similarly, turning off (down button/toggle) will turn off all the lights.  In addition, the controller has a rule to turn off the lights at 10PM in case someone forgot to turn them off.
 
 The water heater switch in the laundry room controls power to the main house water heater.  On sunny days, the water will be kept hot by the two large thermal solar panels on the roof.  The electricity is a backup for when there is not enough sun.  The water heater has a thermostat so it will not draw power if the water is already hot.  The automation system is set to turn on the power at 5PM and off at 11PM.  This only matters on rainy/overcast days because of the thermostat.  The turn-off at 11PM prevents wasting electricity keeping the tank hot at night.
 
@@ -12,18 +12,19 @@ The controller is a Raspberry Pi computer with an interface board for the ZWave 
 
 ## Hardware Details
 
-### Controller
-The controller is an old second-generation (I think) Raspberry Pi computer.  The interface board is a ZWave.Me Razberry2 - [$20 from Amazon](https://www.amazon.com/Z-Wave-Me-RaZberry2-Plug-Raspberry-frequency/dp/B01M3Q764U) .  It is an older model that might be hard to get at some point.  There is a newer Razberry 7 model that is more expensive.  I chose the older model because all of our ZWave devices are old and do not have the version 7 chipset, so the new model would not give any tangible improvements.  Also I wasn't sure this was going to work out so I didn't want to extra money in case it was a failure.
+As with all things electronic, available products change rapidly.  Most of all of the devices listed below are old versions have been superseded by newer versions that accomplish the same function with shiny new features - or not.
 
-The interface board is supposed to work with all models of Raspberry Pi.  It plugs right in to the expansion connector that is the same on all Raspberry Pis. For a large ZWave network it might be better to have a newer/faster Raspberry Pi, but for our setup the old one seems to work just fine.
+### Controller
+The controller is an old second-generation (I think) Raspberry Pi computer.  The interface board is a ZWave.Me Razberry2 - [$20 from Amazon](https://www.amazon.com/Z-Wave-Me-RaZberry2-Plug-Raspberry-frequency/dp/B01M3Q764U) .  It is an older model that might be hard to get at some point.  There is a newer Razberry 7 model that is more expensive.  I chose the older model because all of our ZWave devices are old and do not have the version 7 chipset (version 7 devices have longer range and the batteries last longer), so the new model would not give any tangible improvements.  Also I wasn't sure this was going to work out so I didn't want to spend extra money in case it was a failure.
+
+The interface board is supposed to work with all models of Raspberry Pi.  It plugs in to the expansion connector that is the same on all Raspberry Pis. For a large ZWave network it might be better to have a newer/faster Raspberry Pi, but for our setup the old one seems to work just fine.
 
 ### Water Heater Control
-The water heater control box is [Aeotec Heavy Duty Smart Switch](https://www.amazon.com/Aeotec-Security-controller-electricity-consumption/dp/B00MBIRF5W).  In addition to its ability to switch the water heater power, it also monitors the power that the water heater consumes (voltage, current, watts, and kilowatt-hours) and the temperature in the laundry room.  We are not doing anything with the monitoring functions.
+The water heater control box in the laundry room is [Aeotec Heavy Duty Smart Switch](https://www.amazon.com/Aeotec-Security-controller-electricity-consumption/dp/B00MBIRF5W).  In addition to its ability to switch the water heater power, it also monitors the power that the water heater consumes (voltage, current, watts, and kilowatt-hours) and the temperature in the laundry room.  We are not using the monitoring functions for any automation functions but you could, for example, use the controller software dashboard to see if the water heater is drawing current and thus trying to heat up.
 
 There is button on the box behind a hole in the cover.  If you press it you can turn the water heater on or off manually.  If the red LED is on, the power is on.
 
 ### Outside Door Switch
-
 The outside door switch is similar or maybe identical to [this one](https://www.lowes.com/pd/GE-Z-Wave-ZigBee-Bluetooth-3-Way-White-Toggle-Light-Switch/999911949) .  It is similar to an ordinary wall switch in that the light is directly connected to the switch so you can control the attached light directly from the switch even if the ZWave controller computer is not working.  It also has a ZWave wireless connection to the controller so, when you activate the toggle by pushing it up or down, the controller gets a notification of that event and can use it to control the other lights in the room.  Similarly, the controller can tell this switch to turn its light on or off over ZWave.
 
 It is powered from the house wiring so it does not need a battery.
@@ -34,11 +35,11 @@ These [WA00Z-1](https://www.gocontrol.com/manuals/WA00Z-1-Install.pdf) switches 
 
 For what its worth, the device identifies its manufacturer as "Nortek Security & Control LLC".
 
-In the controller setup, the names are "Bedroom Door Switch" and 
+In the controller setup, the assigned names are "Bedroom Door Switch" and "RightOverheadInWallSwitch".  (When you first pair a device 
 
 ### Plug-in Outlet near Garage Door Opener
 
-It is a ZWave-controlled switch that plugs into an outlet.  It is branded by GE but the innards are made by Jasco.  I think the part number is ZW4103.  It is an older model that is probably not available any more, but many similar newer ones are readily available.  It has a button that you can use to turn it on or off manually, but you need a ladder to reach it.  Normally it is controlled wirelessly - the controller sends it on/off commands according to rules established in the controller software configuration.
+It is a ZWave-controlled switch that plugs into an outlet.  It is branded by GE but the innards are made by Jasco.  I think the part number is [ZW4103](https://manual.zwave.eu/backend/make.php?lang=en&sku=39444/%20ZW4103&cert=ZC10-19126814).  It has a button that you can use to turn it on or off manually, but you need a ladder to reach it.  Normally it is controlled wirelessly - the controller sends it on/off commands according to rules established in the controller software configuration.
 
 I assigned it the name "Left Ceiling Switch" in the controller setup.
 
