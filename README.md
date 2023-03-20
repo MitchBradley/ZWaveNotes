@@ -1,239 +1,94 @@
-<!--
-  <<< Author notes: Header of the course >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses Creative Commons Attribution 4.0 International.
--->
-
-# GitHub Pages
-
-_Create a site or blog from your GitHub repositories with GitHub Pages._
-
-<!--
-  <<< Author notes: Start of the course >>>
-  Include start button, a note about Actions minutes,
-  and tell the learner why they should take the course.
-  Each step should be wrapped in <details>/<summary>, with an `id` set.
-  The start <details> should have `open` as well.
-  Do not use quotes on the <details> tag attributes.
--->
-
-<details id=0>
-<summary><h2>Welcome</h2></summary>
-
-With GitHub Pages, you can host project blogs, documentation, resumes, portfolios, or any other static content you'd like. Your GitHub repository can easily become its own website. In this course, we'll show you how to set up your own site or blog using GitHub Pages.
-
-- **Who is this for**: Beginners, students, project maintainers, small businesses.
-- **What you'll learn**: How to build a GitHub Pages site.
-- **What you'll build**: We'll build a simple GitHub Pages site with a blog. We'll use [Jekyll](https://jekyllrb.com), a static site generator.
-- **Prerequisites**: If you need to learn about branches, commits, and pull requests, take [Introduction to GitHub](https://github.com/skills/introduction-to-github) first.
-- **How long**: This course is five steps long and takes less than one hour to complete.
-
-## How to start this course
-
-1. Right-click **Start course** and open the link in a new tab.
-   <br />[![start-course](https://user-images.githubusercontent.com/1221423/218596841-0645fe1a-4aaf-4f51-9ab3-8aa2d3fdd487.svg)](https://github.com/skills/github-pages/generate)
-2. In the new tab, follow the prompts to create a new repository.
-   - For owner, choose your personal account or an organization to host the repository.
-   - We recommend creating a public repository—private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   ![Create a new repository](https://user-images.githubusercontent.com/1221423/218594143-e60462b6-9f2a-4fa3-80de-063ac5429aab.png)
-3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
-
-</details>
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-<details id=1 open>
-<summary><h2>Step 1: Enable GitHub Pages</h2></summary>
-
-_Welcome to GitHub Pages and Jekyll :tada:!_
-
-The first step is to enable GitHub Pages on this [repository](https://docs.github.com/en/get-started/quickstart/github-glossary#repository). When you enable GitHub Pages on a repository, GitHub takes the content that's on the main branch and publishes a website based on its contents.
-
-### :keyboard: Activity: Enable GitHub Pages
-
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. Under your repository name, click **Settings**.
-1. Click **Pages** in the **Code and automation** section.
-1. Ensure "Deploy from a branch" is selected from the **Source** drop-down menu, and then select `main` from the **Branch** drop-down menu.
-1. Click the **Save** button.
-1. Wait about _one minute_, then refresh this page for the next step.
-   > Turning on GitHub Pages creates a deployment of your repository. GitHub Actions may take up to a minute to respond while waiting for the deployment. Future steps will be about 20 seconds; this step is slower.
-   > **Note**: In the **Pages** of **Settings**, the **Visit site** button will appear at the top. Click the button to see your GitHub Pages site.
-
-</details>
-
-<!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked for empty pull request, changed to the correct theme `minima`.
--->
-
-<details id=2>
-<summary><h2>Step 2: Configure your site</h2></summary>
-
-_You turned on GitHub Pages! :tada:_
-
-We'll work in a branch, `my-pages`, that I created for you to get this site looking great. :sparkle:
-
-Jekyll uses a file titled `_config.yml` to store settings for your site, your theme, and reusable content like your site title and GitHub handle. You can check out the `_config.yml` file on the **Code** tab of your repository.
-
-We need to use a blog-ready theme. For this activity, we will use a theme named "minima".
-
-### :keyboard: Activity: Configure your site
-
-1. Browse to the `_config.yml` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Add a `theme:` set to **minima** so it shows in the `_config.yml` file as below:
-    ```yml
-    theme: minima
-    ```
-1. (optional) You can modify the other configuration variables such as `title:`, `author:`, and `description:` to further customize your site.
-1. Commit your changes.
-1. (optional) Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:my-pages`.
-1. Wait about 20 seconds then refresh this page for the next step.
-
-</details>
-
-<!--
-  <<< Author notes: Step 3 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked the homepage content was not empty.
--->
-
-<details id=3>
-<summary><h2>Step 3: Customize your homepage</h2></summary>
-
-_Nice work setting the theme! :sparkles:_
-
-You can customize your homepage by adding content to either an `index.md` file or the `README.md` file. GitHub Pages first looks for an `index.md` file. Your repository has an `index.md` file so we can update it to include your personalized content.
-
-### :keyboard: Activity: Create your homepage
-
-1. Browse to the `index.md` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Type the content you want on your homepage. You can use Markdown formatting on this page.
-1. (optional) You can also modify `title:` or just ignore it for now. We'll discuss it in the next step.
-1. Commit your changes to the `my-pages` branch.
-1. Wait about 20 seconds then refresh this page for the next step.
-
-</details>
-
-<!--
-  <<< Author notes: Step 4 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked the file path. Previous version checked the front matter formatting.
--->
-
-<details id=4>
-<summary><h2>Step 4: Create a blog post</h2></summary>
-
-_Your home page is looking great! :cowboy_hat_face:_
-
-GitHub Pages uses Jekyll. In Jekyll, we can create a blog by using specially named files and frontmatter. The files must be named `_posts/YYYY-MM-DD-title.md`. You must also include `title` and `date` in your frontmatter.
-
-**What is _frontmatter_?**: The syntax Jekyll files use is called YAML frontmatter. It goes at the top of your file and looks something like this:
-
-```yml
 ---
-title: "Welcome to my blog"
-date: 2019-01-20
+ZWave Home Automation Notes: The garage overhead lights and the house water heater switch are controlled with a home automation method called ZWave.  This page tells about the setup of that system.
 ---
-```
+## Overview
+There are three groups of overhead lights in the garage - one light over the workbench next to the window, a cluster over the workbench in the middle of the room, and some over the walkway near the garage door opener.  There are three switches - a wired toggle switch next to the outside door and on-wall wireless (battery powered) switches next to the stairway door and the downstairs bedroom door.  There are also some task lights that can only be controlled by switches right on the lights.
 
-For more information about configuring front matter, see the [Jekyll frontmatter documentation](https://jekyllrb.com/docs/frontmatter/).
+The intention is that turning on any switch (up button/toggle) will turn on all the light, and similarly, turning off (down button/toggle) will turn off all the lights.  In addition, the controller has a rule to turn off the lights at 10PM in case someone forgot to turn them off.
 
-### :keyboard: Activity: Create a blog post
+The water heater switch in the laundry room controls power to the main house water heater.  On sunny days, the water will be kept hot by the two large thermal solar panels on the roof.  The electricity is a backup for when there is not enough sun.  The water heater has a thermostat so it will not draw power if the water is already hot.  The automation system is set to turn on the power at 5PM and off at 11PM.  This only matters on rainy/overcast days because of the thermostat.  The turn-off at 11PM prevents wasting electricity keeping the tank hot at night.
 
-1. Browse to the `my-pages` branch.
-1. Click the `Add file` dropdown menu and then on `Create new file`.
-1. Name the file `_posts/YYYY-MM-DD-title.md`.
-1. Replace the `YYYY-MM-DD` with today's date, and change the `title` of your first blog post if you'd like.
-   > If you do edit the title, make sure there are hyphens between your words.
-   > If your blog post date doesn't follow the correct date convention, you'll receive an error and your site won't build. For more information, see "[Page build failed: Invalid post date](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)".
-1. Type the following content at the top of your blog post:
-   ```yaml
-   ---
-   title: "YOUR-TITLE"
-   date: YYYY-MM-DD
-   ---
-   ```
-1. Replace `YOUR-TITLE` with the title for your blog post.
-1. Replace `YYYY-MM-DD` with today's date.
-1. Type a quick draft of your blog post. Remember, you can always edit it later.
-1. Commit your changes to your branch.
-1. Wait about 20 seconds then refresh this page for the next step.
+The controller is a Raspberry Pi computer with an interface board for the ZWave wireless communication protocol.  It runs some software named ZWave.me that lets you set up rules for what happens on various events like switch activations and time of day.  It is located near the outside door in the garage, plugged in to an Ethernet switch that is on the home LAN (192.168.68.x subnet).  That location puts it in wireless range of all the ZWave devices in the garage, as well as the water heater switch in the laundry room.
 
-</details>
+## Hardware Details
 
-<!--
-  <<< Author notes: Step 5 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
--->
+### Controller
+The controller is an old second-generation (I think) Raspberry Pi computer.  The interface board is a ZWave.Me Razberry2 - [$20 from Amazon](https://www.amazon.com/Z-Wave-Me-RaZberry2-Plug-Raspberry-frequency/dp/B01M3Q764U) .  It is an older model that might be hard to get at some point.  There is a newer Razberry 7 model that is more expensive.  I chose the older model because all of our ZWave devices are old and do not have the version 7 chipset, so the new model would not give any tangible improvements.  Also I wasn't sure this was going to work out so I didn't want to extra money in case it was a failure.
 
-<details id=5>
-<summary><h2>Step 5: Merge your pull request</h2></summary>
+The interface board is supposed to work with all models of Raspberry Pi.  It plugs right in to the expansion connector that is the same on all Raspberry Pis. For a large ZWave network it might be better to have a newer/faster Raspberry Pi, but for our setup the old one seems to work just fine.
 
-_Nice work, friend :heart:! People will be reading your blog in no time!_
+### Water Heater Control
+The water heater control box is [Aeotec Heavy Duty Smart Switch](https://www.amazon.com/Aeotec-Security-controller-electricity-consumption/dp/B00MBIRF5W).  In addition to its ability to switch the water heater power, it also monitors the power that the water heater consumes (voltage, current, watts, and kilowatt-hours) and the temperature in the laundry room.  We are not doing anything with the monitoring functions.
 
-You can now [merge](https://docs.github.com/en/get-started/quickstart/github-glossary#merge) your pull request!
+There is button on the box behind a hole in the cover.  If you press it you can turn the water heater on or off manually.  If the red LED is on, the power is on.
 
-### :keyboard: Activity: Merge your changes
+### Outside Door Switch
 
-1. Merge your changes from `my-pages` into `main`. If you created the pull request in step 2, just open that PR and click on **Merge pull request**. If you did not create the pull request earlier, you can do it now by following the instructions in step 2.
-1. (optional) Delete the branch `my-pages`.
-1. Wait about 20 seconds then refresh this page for the next step.
+The outside door switch is similar or maybe identical to [this one](https://www.lowes.com/pd/GE-Z-Wave-ZigBee-Bluetooth-3-Way-White-Toggle-Light-Switch/999911949) .  It is similar to an ordinary wall switch in that the light is directly connected to the switch so you can control the attached light directly from the switch even if the ZWave controller computer is not working.  It also has a ZWave wireless connection to the controller so, when you activate the toggle by pushing it up or down, the controller gets a notification of that event and can use it to control the other lights in the room.  Similarly, the controller can tell this switch to turn its light on or off over ZWave.
 
-</details>
+It is powered from the house wiring so it does not need a battery.
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+### Bedroom and Stairway Door Switches
 
-<details id=X>
-<summary><h2>Finish</h2></summary>
+These [WA00Z-1](https://www.gocontrol.com/manuals/WA00Z-1-Install.pdf) switches are wireless only, battery powered, screwed to the wall, not connected to the house wiring.  They do not directly switch any devices; instead they just send ZWave data to the controller when you press one of the two buttons.  The controller uses that to affect the other devices.  They each have two CR2032 coin cell batteries inside, which need replacing every so often.  To get to the batteries you just pull on the cover and it pops off.
 
-_Congratulations friend, you've completed this course!_
+For what its worth, the device identifies its manufacturer as "Nortek Security & Control LLC".
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
+In the controller setup, the names are "Bedroom Door Switch" and 
 
-Your blog is now live and has been deployed!
+### Plug-in Outlet near Garage Door Opener
 
-Here's a recap of all the tasks you've accomplished in your repository:
+It is a ZWave-controlled switch that plugs into an outlet.  It is branded by GE but the innards are made by Jasco.  I think the part number is ZW4103.  It is an older model that is probably not available any more, but many similar newer ones are readily available.  It has a button that you can use to turn it on or off manually, but you need a ladder to reach it.  Normally it is controlled wirelessly - the controller sends it on/off commands according to rules established in the controller software configuration.
 
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first a blog post with Jekyll!
+I assigned it the name "Left Ceiling Switch" in the controller setup.
 
-### What's next?
+### In-ceiling Outlet Above Main Workbench
 
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/skills/.github/discussions).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
+This is similar to the plug-in outlet above but instead of plugging in, it is inside an outlet box.  It is also GE-branded but made by Jasco.  Its assigned name is "RightOverHeadInWallSwitch".  It too has a manual switch that you can reach with a ladder, and is normally controller wirelessly.
 
-</details>
+### Garage Door Sensor
+There is a battery-powered sensor on the side of the garage door near the bedroom door.  A magnet attached to the garage door tells it when the door is closed.  I used to use this to close the garage door automatically at night, but I don't use it anymore because the gadget that I build to activate the garage door opener remotely stopped working and I haven't fixed it.  This sensor is not currently paired with the controller.
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+## Pairing Tricks
 
----
+Pairing a ZWave device with the controller can be tricky.  In principle, it is as simple as "tell the controller software to go into pairing mode, then press a button on the device".  In practice, this only works easily on a fresh-out-of-the-box device that has never been paired to a different network, and often only when the device is pretty close physically to the controller.  If the device is already paired, you first have to unpair it which is easy if the old controller is still functional - just put the controller in unpair mode and press the button.  Things get interesting if you don't have the old controller or it is dead.  Then you have to do a "factory reset" on the device, which requires a chicken dance.  Every device has its own special chicken dance sequence of button pushes or whatever.  The timing can be very picky so sometimes you need several tries to get it right.
 
-Get help: [Post in our discussion board](https://github.com/skills/.github/discussions) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+### Water Heater Factory Reset
+Per https://manuals.plus/Aeotec/aeotec-heavy-duty-smart-switch-gen5-zw078-f-manual, I think you have to press the switch and hold it for 20 seconds.  The light will blink when it is unpaired.
+### Outside Door Factory Reset
+Toggle switch up three times in rapid succession, then down three times in rapid succession.
+### Plugin Outlet Factory Reset
+Per https://support.getvera.com/hc/en-us/article_attachments/360047115674/ZW4103__GEJasco_Plug-in_Smart_Switch.pdf, unplug it, hold down the button, then plug it in and continue to hold the button for 3 seconds.
+### In-wall Outlet Factory Reset
+Push button three times in rapid succession then on the fourth press, hold it for three seconds.  The light will blink when you get it right.  Very tricky.
+### Wireless Wall Switch Factory Reset
+Per chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://www.gocontrol.com/manuals/WA00Z-1-Install.pdf, press the top button 5 times then the bottom button 5 times, all within 5 seconds.  The light will blink 7 times if you get it right.
+## Controller Software
+### Credentials
+You can get to the Rasberry Pi Linux prompt with ssh.  At the moment, the DHCP IP address is 192.168.68.136.  I should probably switch it to a static IP.  The Linux user name for that Raspberry Pi is "pi", with password "razberry" (note the 'z', not the normal spelling).
 
-&copy; 2022 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [CC-BY-4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
+For the Z-Wave.Me automation software, the login is "admin" and the password is via my usual schema with "ZW".  You can find the automation software by browsing to "find.z-wave.me" from the CampOlinda network, then click on the IP address shown at the bottom, just below "Direct connect to Z-Way".  Or browse to 192.168.68.136:8083 assuming that DHCP has not assigned a different IP address.
+### Reinstalling the software
+The software was installed by imaging the Raspberry Pi's MicroSD card via https://z-wave.me/z-way/download-z-way/ .  I used Balena Etcher to copy the image to the card but there are many ways to do it.  The image installation technique is faster an easier than first installing a Raspbian distro then adding the software, because the prebuilt image omits a lot of Linux services that you don't need and that make it start slower.  After you image it, you might need to login and setup the network - but sometimes it just works out of the box if WiFi is not involved - as is the case with the Ethernet-connected Pi.
+
+The [ZWave.Me software manual](https://z-wave.me/files/manual/z-way/#) has pretty good instructions for installation and initial connection, but it is rather poor at telling you how to set up the automation, so I will explain that here.
+
+### Controls and Sensor
+
+A control is something that can be turned on or off, like a light.  A sensor sends a signal to the controller, based on a user action or a door closure or a reading like temperature.  Many ZWave gadgets have both a control function and one or more sensor functions.  For example the wall switch near the outside door has a toggle on the wall that you can push up or down (sensor) and an internal switch that turns on the power to the light that is wired to it.  In a lot of cases, the sensor both directly activates the associated control, but also sends a wireless message to the controller.  The controller can then decide what to do with other controls in different gadgets.
+
+### Scenes
+
+A "scene" is a collection of settings for controls.  It is a way of creating a group of devices with corresponding states.  Right now there are two scenes "Garage Lights On" and "Garage Lights Off".  The first one, obviously, has all of the lights on, and the second has all of them off.
+
+To manage scenes, click on the "Automation" tab (gear icon), then select Scenes.  You can then select a scene to edit or make a new one.  You can also run a scene to apply all of its setting to their devices, deactivate it to make it temporarily unavailable (or reactivate it), or delete it.
+
+When you are editing a scene, there is a list of Assigned Devices that are part of that scene, with the corresponding state - on or off.  There is also a list of Available Devices that you could add to the scene if you want.  The Available Devices are grouped by the room the device is in.  A device that is already in the Assigned list will not be shown in the Available list.
+
+### Rules
+
+A "rule" tells the controller software what to do when something happens, like when a sensor activates (for example, a button is pushed).  After the devices are paired (see below), you can change the automation rules by clicking the Automation tab (gear icon) then selecting Rules.  
+
+Rules are basically "IF .. THEN" structures.  E.g. IF (the top button on the bedroom door switch is pushed OR the top button on the stairway door switch is pushed) THEN (activate the scene "Garage Lights On"). The IF clause can also include time-based events like (time >= 11PM). There are rules for turning on/off the garage lights and for turning on/off the water heater.
+
+The editing panel for a given Rule is a little involved, but you can figure it out with a little experimentation.  Basically it involves assigning sensors to the IF part, perhaps in combinations with AND/OR, and assigning controls or scenes to the THEN part.
