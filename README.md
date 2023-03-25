@@ -108,6 +108,8 @@ When editing a scene, there is a list of Assigned Devices that are already part 
 
 A "rule" tells the controller software what to do when something happens, like when a sensor activates (for example, a button is pushed).  After the devices are paired (see below), you can change the automation rules by clicking the Automation tab (gear icon) then selecting Rules.  
 
-Rules are basically "IF .. THEN" structures.  E.g. IF (the top button on the bedroom door switch is pushed OR the top button on the stairway door switch is pushed) THEN (activate the scene "Garage Lights On"). The IF clause can also include time-based events like (time >= 11PM). There are rules for turning on/off the garage lights and for turning on/off the water heater.
+Rules are basically "IF .. THEN" structures.  E.g. IF (the top button on the bedroom door switch is pushed OR the top button on the stairway door switch is pushed) THEN (activate the scene "Garage Lights On"). The IF clause can also include time-based clauses like (time >= 11PM), but they do not directly trigger the action, they only modify (enable or disable based on time) the other trigger. If you want to trigger something at a certain time you need to use a "Schedule".
 
 The editing panel for a given Rule is a little involved, but you can figure it out with a little experimentation.  Basically it involves assigning sensors to the IF part, perhaps in combinations with AND/OR, and assigning controls or scenes to the THEN part.
+### Schedules
+If you want something to happen at a certain time of day, you can create a "Schedule" via Automation>Schedules. There are schedules for turning off the garage lights late at night ("Lights Out Tonite", see https://www.youtube.com/watch?v=eFYMl_OhiEs - classic Springsteen from when he was writing poetry instead of cheezy anthems) and for turning on/off the water heater (aptly named "Water Heater On" and "Water Heater On").
