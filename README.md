@@ -45,9 +45,13 @@ It is a ZWave-controlled switch that plugs into an outlet and then you can plug 
 
 The assigned name is "Left Ceiling Switch".
 
-### In-ceiling Outlet Above Main Workbench
+### Outlet Above Main Workbench
+This is a relatively new (as of Jan 2025) "NEO Z-Wave Plus Smart Mini Plug" plug-in outlet.  In addition to on-off, it also monitors voltage, current, power and energy.  Its assigned name is "AboveBenchOutlet".  There is a manual at szneo.com.  Like the plug-in outlet, it has a manual switch that you can reach with a ladder, and is normally controlled wirelessly.
+#### Factory Reset
+Hold the button for 10 seconds until "led lights is on", then release.  The LED will blink 5 times.
 
-This is similar to the plug-in outlet above but instead of plugging in to a dumb outlet, it is inside an outlet box.  It is also GE-branded but made by Jasco.  Its assigned name is "RightOverHeadInWallSwitch".  Like the plug-in outlet, it has a manual switch that you can reach with a ladder, and is normally controlled wirelessly.
+#### Inclusion Mode
+Plug it in then press the button 3 times within 1.5s.  The LED will blink 3 times.
 
 ### Garage Door Sensor
 There is a battery-powered sensor on the side of the garage door near the bedroom door.  A magnet attached to the garage door tells it when the door is closed.  In the distant past I used it to use this to close the garage door automatically at night, but I don't use it anymore. The gadget that I built to activate the garage door opener remotely stopped working and I haven't fixed it.  This sensor is not currently paired with the controller.
@@ -64,15 +68,15 @@ Per https://manuals.plus/Aeotec/aeotec-heavy-duty-smart-switch-gen5-zw078-f-manu
 Toggle switch up three times in rapid succession, then down three times in rapid succession.
 ### Plugin Outlet Factory Reset
 Per https://support.getvera.com/hc/en-us/article_attachments/360047115674/ZW4103__GEJasco_Plug-in_Smart_Switch.pdf, unplug it, hold down the button, then plug it in and continue to hold the button for 3 seconds.
-### In-wall Outlet Factory Reset
-Push button three times in rapid succession then on the fourth press, hold it for three seconds.  The light will blink when you get it right.  Very tricky.
+### Outlet Above Main Workbench Factory Reset
+Hold the button for 10 seconds until "led lights is on", then release.  The LED will blink 5 times.
 ### Wireless Wall Switch Factory Reset
 Per chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://www.gocontrol.com/manuals/WA00Z-1-Install.pdf, press the top button 5 times then the bottom button 5 times, all within 5 seconds.  The light will blink 7 times if you get it right.
 ## Controller Software
 ### Credentials
-You can get to the Rasberry Pi Linux prompt with ssh.  The static IP address is 192.168.68.20, assigned via /etc/conf.d/netif.eth0 on the Pi.  The Linux user name for that Raspberry Pi is "pi", with password "razberry" (note the 'z', not the normal spelling).  The Linux prompt is not necessary for normal administration of the ZWave network, but you might need it if you need to update the computer or change the IP address.
+You can get to the Rasberry Pi Linux prompt with ssh.  The static IP address is 192.168.4.20, assigned via /etc/conf.d/netif.eth0 on the Pi.  The Linux user name for that Raspberry Pi is "pi", with password "razberry" (note the 'z', not the normal spelling).  The Linux prompt is not necessary for normal administration of the ZWave network, but you might need it if you need to update the computer or change the IP address.
 
-For the Z-Wave.Me automation software, the login is "admin" and the password is via my usual schema with "ZW".  You can find the automation software without knowing its IP address by browsing to "find.z-wave.me" from a machine on the CampOlinda network, then click on the IP address shown at the bottom, just below "Direct connect to Z-Way".  Or you can browse directly to 192.168.68.20:8083 .
+For the Z-Wave.Me automation software, the login is "admin" and the password is via my usual schema with "ZW".  You can find the automation software without knowing its IP address by browsing to "find.z-wave.me" from a machine on the CampOlinda network, then click on the IP address shown at the bottom, just below "Direct connect to Z-Way".  Or you can browse directly to 192.168.4.20:8083 .
 
 If you want to access the controller from outside the CampOlinda network, you can browse to find.zwave.me and enter the Remote ID  190419 with the Z-Wave.Me login (admin) and password as given above.  There is a phone app Z-Wave.Me for which you will need the same credentials.
 
@@ -80,6 +84,17 @@ If you want to access the controller from outside the CampOlinda network, you ca
 The software was installed by imaging the Raspberry Pi's MicroSD card via https://z-wave.me/z-way/download-z-way/ .  I used Balena Etcher to copy the image to the card but there are many ways to do that.  The image installation technique is faster and easier than first installing a Raspbian distro then adding the software.  The prebuilt image omits a lot of Linux services that you don't need, so it boots surprisingly fast.  After you image it, you might need to login and setup the network - but sometimes it just works out of the box if WiFi is not involved - as is the case with the Ethernet-connected Pi.
 
 The [ZWave.Me software manual](https://z-wave.me/files/manual/z-way/#) has pretty good instructions for installation and initial connection, but it is rather poor at telling you how to set up the automation, so I will explain that here.
+
+#### Changing the IP Address
+You might have to do this if the subnet changes due to a new router or whatever.
+* Take down the Raspberry Pi and plug in a USB keyboard and HDMI monitor.
+* Power it on and wait for the login prompt
+* Login as pi / razberry.
+* **sudo nano /etc/conf.d/netif.eth0**  (there is also **editor** with EMACS-like bindings, and of course **vi**)
+* Change the ipaddrs, gateway, and nameservers lines to reflect the new subnet.
+* Save the file and exit
+* **sudo reboot**
+* Login again and check the network setup with `ip addr`
 
 ### Controls and Sensor
 
